@@ -1,0 +1,24 @@
+div.paging-wrapper {
+    height: fit-content;
+}
+
+div.paging-wrapper > .pagination-size {
+    width: auto;
+}
+
+div.paging-wrapper > .pagination-control {
+    justify-content: center !important;
+    display: flex !important;
+    height: fit-content;
+}
+
+div.paging-wrapper > .pagination-control > ul {
+    margin-bottom: 0 !important;
+}
+
+div.paging-wrapper > span.pagination-index {
+    height: fit-content; 
+    padding: 0.375rem 1rem 0.375rem 1rem; 
+    color: #495057;
+    border-radius: 5px;
+}

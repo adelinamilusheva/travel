@@ -1,0 +1,658 @@
+{
+  "uuid": "140e101c-9336-4418-b094-09d42e39740c",
+  "lastMigration": 22,
+  "name": "Travel",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "6b0e2cf6-d5b1-4468-b942-6a224d873147",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/groups/menu",
+      "responses": [
+        {
+          "uuid": "0ccb2f7f-30f4-49bb-bb70-01af20464402",
+          "body": "[\n   {\n      \"id\":1,\n      \"name\":\"Австралия\",\n      \"subgroups\":[\n         \n      ]\n   },\n   {\n      \"id\":2,\n      \"name\":\"Азия\",\n      \"subgroups\":[\n         {\n            \"id\":7,\n            \"name\":\"Китай\"\n         }\n      ]\n   },\n   {\n      \"id\":3,\n      \"name\":\"Африка\",\n      \"subgroups\":[\n         \n      ]\n   },\n   {\n      \"id\":4,\n      \"name\":\"Европа\",\n      \"subgroups\":[\n         \n      ]\n   },\n   {\n      \"id\":5,\n      \"name\":\"Северна Америка\",\n      \"subgroups\":[\n         {\n            \"id\":12,\n            \"name\":\"Канада\"\n         },\n         {\n            \"id\":13,\n            \"name\":\"САЩ\"\n         }\n      ]\n   },\n   {\n      \"id\":6,\n      \"name\":\"Южна Америка\",\n      \"subgroups\":[\n         {\n            \"id\":15,\n            \"name\":\"Бразилия\"\n         }\n      ]\n   }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "b788eba1-5617-46b7-8728-ad4a31e399dc",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/groups/:id",
+      "responses": [
+        {
+          "uuid": "3aff0de2-c2b8-47c9-b590-3f51e5a39079",
+          "body": "{{# switch (urlParam 'id')}}\n  {{# case '1'}}\n    {\"id\": 1,\"name\":\"Австралия\",\"description\":\"\",\"parent\":null,\"subgroups\":[]}\n  {{/ case}}\n  {{# case '2'}}\n   {\"id\": 2,\"name\":\"Азия\",\"description\":\"\",\"parent\":null,\"subgroups\":[]}\n  {{/ case}}\n  {{# default}}\n   {\"id\": 3,\"name\":\"Европа\",\"description\":\"\",\"parent\":null,\"subgroups\":[]}\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "174ef5ee-2a8b-499a-8525-eca18a4b1752",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/weather/:lang/:name",
+      "responses": [
+        {
+          "uuid": "8fce450b-5491-4997-b03a-ad090fefc5cc",
+          "body": "{{# switch (urlParam 'name')}}\n  {{# case 'София'}}\n    {\"name\":\"София\",\"weather\":[{\"main\":\"Clouds\",\"description\":\"предимно облачно\",\"icon\":\"04d\"}],\"main\":{\"temp\":\"22.83\",\"feels_like\":\"22.84\",\"pressure\":\"1010\",\"humidity\":\"64\"},\"wind\":{\"speed\":\"2.57\"}}\n  {{/ case}}\n  {{# case 'Токио'}}\n  {\"name\":\"Токио\",\"weather\":[{\"main\":\"Clouds\",\"description\":\"предимно облачно\",\"icon\":\"04n\"}],\"main\":{\"temp\":\"26.81\",\"feels_like\":\"29.08\",\"pressure\":\"1006\",\"humidity\":\"77\"},\"wind\":{\"speed\":\"3.6\"}}\n  {{/ case}}\n  {{# default}}\n  {\"name\":\"Мадрид\",\"weather\":[{\"main\":\"Clear\",\"description\":\"ясно небе\",\"icon\":\"01d\"}],\"main\":{\"temp\":\"32.17\",\"feels_like\":\"30.2\",\"pressure\":\"1019\",\"humidity\":\"21\"},\"wind\":{\"speed\":\"3.09\"}}\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "40c3ea27-742a-4ff1-8ff1-fb1835c5096e",
+      "documentation": "",
+      "method": "delete",
+      "endpoint": "api/comments/:id",
+      "responses": [
+        {
+          "uuid": "1e41983c-29ac-4d75-8e6b-dfdf19c8db2d",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "322536fd-14c6-402c-afac-5e2099f3e030",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "api/comments/update/:id",
+      "responses": [
+        {
+          "uuid": "329643c5-a21b-4ac4-a14a-a6f5a140e313",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 202,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "25e84d11-f6c3-43e2-96ce-f0daa14270ae",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/comments/create",
+      "responses": [
+        {
+          "uuid": "7273a646-d608-4faa-8493-c99c446af73d",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "36371127-1ea0-4a80-b965-6ab39effacd0",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/comments/:publicationId",
+      "responses": [
+        {
+          "uuid": "462191c4-9e26-4c3b-a906-9f721dd5bd00",
+          "body": "{{# switch (urlParam 'publicationId')}}\n  {{# case '1'}}\n    [{\"id\":1,\"content\":\"Бях там!\",\"publishedAt\":\"19:19 19.08.2022\",\"ipAddress\":\"78.83.125.178\",\"publicationId\":1},{\"id\":3,\"content\":\"Много е дълбоко.\",\"publishedAt\":\"14:12 05.07.2022\",\"ipAddress\":\"213.91.180.107\",\"publicationId\":41},{\"id\":1,\"content\":\"Много е красиво!\",\"publishedAt\":\"13:12 05.06.2022\",\"ipAddress\":\"213.91.180.106\",\"publicationId\":41}]\n  {{/ case}}\n  {{# case '2'}}\n  [{\"id\":2,\"content\":\"Красота!\",\"publishedAt\":\"19:19 19.08.2022\",\"ipAddress\":\"78.83.125.178\",\"publicationId\":2},{\"id\":3,\"content\":\"Много е дълбоко.\",\"publishedAt\":\"14:12 05.07.2022\",\"ipAddress\":\"213.91.180.107\",\"publicationId\":41},{\"id\":1,\"content\":\"Много е красиво!\",\"publishedAt\":\"13:12 05.06.2022\",\"ipAddress\":\"213.91.180.106\",\"publicationId\":41}]\n  {{/ case}}\n  {{# default}}\n   [{\"id\":3,\"content\":\"Супер!\",\"publishedAt\":\"19:19 19.08.2022\",\"ipAddress\":\"78.83.125.178\",\"publicationId\":3},{\"id\":3,\"content\":\"Много е дълбоко.\",\"publishedAt\":\"14:12 05.07.2022\",\"ipAddress\":\"213.91.180.107\",\"publicationId\":41},{\"id\":1,\"content\":\"Много е красиво!\",\"publishedAt\":\"13:12 05.06.2022\",\"ipAddress\":\"213.91.180.106\",\"publicationId\":41}]\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "e13c094d-5cd1-4d3e-8d93-6327e5030158",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "api/tags/status/:id/:isActive",
+      "responses": [
+        {
+          "uuid": "47d69610-0c9c-4437-9681-6a9bfd3258d7",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 202,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "b891cb85-ace4-45b2-951d-73a62f21d6f0",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/ratings/:publicationId",
+      "responses": [
+        {
+          "uuid": "ff564ada-6726-4052-a9a9-c56c6764ff43",
+          "body": "{{# switch (urlParam 'publicationId')}}\n  {{# case '1'}}\n   true\n  {{/ case}}\n  {{# case '2'}}\n  false\n  {{/ case}}\n  {{# default}}\n  true\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "ipAddress",
+              "value": "213.91.180.106",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "db524091-057d-4e6a-bd09-b2df4db527fa",
+          "body": "{{# switch (urlParam 'publicationId')}}\n  {{# case '3'}}\n    true\n  {{/ case}}\n  {{# case '4'}}\n    false\n  {{/ case}}\n  {{# default}}\n    false\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "ipAddress",
+              "value": "78.90.22.70",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "24b889ab-1144-4d09-aba7-f5841b051bb2",
+          "body": "{{# switch (urlParam 'publicationId')}}\n  {{# case '3'}}\n    true\n  {{/ case}}\n  {{# case '4'}}\n    false\n  {{/ case}}\n  {{# default}}\n    false\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "ipAddress",
+              "value": "77.70.54.223",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "77fb7ffe-3980-4bb6-930f-96ee98f566e6",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/publications/:id/add-reading",
+      "responses": [
+        {
+          "uuid": "74acada8-7783-46fc-b698-93dc0e79309f",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "40805662-4c1d-4ff9-9370-81fd82a53ad9",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/groups/all",
+      "responses": [
+        {
+          "uuid": "d2db7e9d-1870-45a0-bc15-af3c2bbb4b6a",
+          "body": "[\n   {\n      \"id\": 1,\n      \"name\": \"Австралия\",\n      \"description\": \"Австралия е опасен континент.\",\n      \"isActive\": true\n   },\n   {\n      \"id\":2,\n      \"name\":\"Азия\",\n      \"description\": \"Азия е най-населения континент.\",\n      \"isActive\": true \n      \n   },\n   {\n      \"id\":3,\n      \"name\":\"Африка\",\n      \"description\": \"Африка е топъл континент.\",\n      \"isActive\": true \n   },\n   {\n      \"id\":4,\n      \"name\":\"Европа\",\n      \"description\": \"Европа е красив континент.\",\n      \"isActive\": true \n   },\n   {\n      \"id\":5,\n      \"name\":\"Северна Америка\",\n      \"description\": \"САЩ е в Северна Америка.\",\n      \"isActive\": true \n   },\n   {\n      \"id\":6,\n      \"name\":\"Южна Америка\",\n      \"description\": \"Мачу Пикчу е тук.\",\n      \"isActive\": true \n   }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "4058d8f3-73af-4f10-8a93-1b6124a89e39",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/groups/all-short",
+      "responses": [
+        {
+          "uuid": "6d4506d5-b62d-4afb-8b3c-a986932113d2",
+          "body": "[\n   {\n      \"id\": 1,\n      \"name\": \"Австралия\",\n      \"description\": \"Австралия е опасен континент.\"\n   },\n   {\n      \"id\":2,\n      \"name\":\"Азия\",\n      \"description\": \"Азия е най-населения континент.\"\n      \n   },\n   {\n      \"id\":3,\n      \"name\":\"Африка\",\n      \"description\": \"Африка е топъл континент.\"\n   },\n   {\n      \"id\":4,\n      \"name\":\"Европа\",\n      \"description\": \"Европа е красив континент.\"\n   },\n   {\n      \"id\":5,\n      \"name\":\"Северна Америка\",\n      \"description\": \"САЩ е в Северна Америка.\"\n   },\n   {\n      \"id\":6,\n      \"name\":\"Южна Америка\",\n      \"description\": \"Мачу Пикчу е тук.\"\n   }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "945c32e0-a762-40d1-a7bf-22c2b77b2910",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/groups/all-valid",
+      "responses": [
+        {
+          "uuid": "c209a9dc-f8f2-45c6-a8a0-eb420cb4612a",
+          "body": "[\n   {\n      \"id\": 1,\n      \"name\": \"Австралия\",\n      \"description\": \"Австралия е опасен континент.\",\n      \"parent\": null,\n      \"subgroups\": [\n         \n      ]\n   },\n   {\n      \"id\": 2,\n      \"name\": \"Азия\",\n      \"description\": \"Азия е най-населения континент.\",\n      \"subgroups\":[\n         {\n            \"id\": 7,\n            \"name\":\" Китай\"\n         }\n      ]\n   },\n   {\n      \"id\":3,\n      \"name\":\"Африка\",\n      \"description\": \"Африка е топъл континент.\",\n      \"parent\": null,\n      \"subgroups\":[\n         {\n            \"id\": 10,\n            \"name\": \"Египет\"\n         }\n      ]\n   },\n   {\n      \"id\":4,\n      \"name\":\"Европа\",\n      \"description\": \"Европа е красив континент.\",\n      \"parent\": null,\n      \"subgroups\":[\n         {\n            \"id\": 12,\n            \"name\": \"София\"\n         }\n      ]\n   },\n   {\n      \"id\":5,\n      \"name\":\"Северна Америка\",\n      \"description\": \"САЩ е в Северна Америка.\",\n      \"parent\": null,\n      \"subgroups\":[\n         {\n            \"id\": 15,\n            \"name\": \"САЩ\"\n         }\n      ]\n   },\n   {\n      \"id\":6,\n      \"name\":\"Южна Америка\",\n      \"description\": \"Мачу Пикчу е тук.\",\n      \"parent\": null,\n      \"subgroups\":[\n         {\n            \"id\": 20,\n            \"name\": \"Бразилия\"\n         }\n      ]\n   }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "9ce4e669-1c47-434e-859f-954330e5d24e",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/groups/create",
+      "responses": [
+        {
+          "uuid": "74a85447-84cc-4813-a2e7-d0736b5fe0ee",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "f894b936-89ca-4591-af67-6f34dbe27875",
+      "documentation": "",
+      "method": "put",
+      "endpoint": "api/groups/update/:id",
+      "responses": [
+        {
+          "uuid": "2e77e97e-9b99-4dc7-b152-16cc8ea8cc1d",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 202,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "abc3be88-2ea8-43f8-ad8d-e9fd58713419",
+      "documentation": "",
+      "method": "patch",
+      "endpoint": "api/groups/status/:id/:isActive",
+      "responses": [
+        {
+          "uuid": "1f508f08-de9e-4124-b526-7b06c12a4906",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 202,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "595bf3d9-2f1f-44c2-bc98-293890af2bb6",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/notifications/subscribe",
+      "responses": [
+        {
+          "uuid": "e11542ef-9e68-4ff8-982a-111efb6f393e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 202,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1f32dc4c-78d1-4380-a50a-aad157ab941e",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/notifications/unsubscribe",
+      "responses": [
+        {
+          "uuid": "cbb807f9-5b86-4153-aeaa-58cde3fcf9a6",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 202,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3d7ac4c5-855a-4c56-b464-cc35369b613f",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/publications/:id",
+      "responses": [
+        {
+          "uuid": "65fc262a-9a2a-4e10-bb8b-247c45527ba0",
+          "body": "{{# switch (urlParam 'id')}}\n  {{# case '1'}}\n    {\n   \"id\":41,\n   \"title\":\"Белоградчишките скали\",\n   \"subtitle\":\"nova e\",\n   \"content\":\"<font size=\\\"3\\\">Красиво е!</font>\",\n   \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n   \"publishedAt\":\"16:48 09.06.2022\",\n   \"createdBy\":\"da\",\n   \"city\":null,\n   \"groups\":[\n      {\n         \"id\":1,\n         \"name\":\"Австралия\",\n         \"subgroups\":[\n            \n         ]\n      }\n   ],\n   \"tags\":[\n      {\n         \"id\":1,\n         \"name\":\"Пустиня\"\n      }\n   ]\n}\n  {{/ case}}\n  {{# case '2'}}\n   {\n   \"id\":42,\n   \"title\":\"Белоградчишките скали\",\n   \"subtitle\":\"nova e\",\n   \"content\":\"<font size=\\\"3\\\">Красиво е!</font>\",\n   \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n   \"publishedAt\":\"16:48 09.06.2022\",\n   \"createdBy\":\"da\",\n   \"city\":null,\n   \"groups\":[\n      {\n         \"id\":1,\n         \"name\":\"Австралия\",\n         \"subgroups\":[\n            \n         ]\n      }\n   ],\n   \"tags\":[\n      {\n         \"id\":1,\n         \"name\":\"Пустиня\"\n      }\n   ]\n}\n  {{/ case}}\n  {{# default}}\n   {\n   \"id\":43,\n   \"title\":\"Белоградчишките скали\",\n   \"subtitle\":\"nova e\",\n   \"content\":\"<font size=\\\"3\\\">Красиво е!</font>\",\n   \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n   \"publishedAt\":\"16:48 09.06.2022\",\n   \"createdBy\":\"da\",\n   \"city\":null,\n   \"groups\":[\n      {\n         \"id\":1,\n         \"name\":\"Австралия\",\n         \"subgroups\":[\n            \n         ]\n      }\n   ],\n   \"tags\":[\n      {\n         \"id\":1,\n         \"name\":\"Пустиня\"\n      }\n   ]\n}\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "da88a775-84cf-478d-ab84-2695173f3ef8",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/publications/:id/readings",
+      "responses": [
+        {
+          "uuid": "31094af4-50a2-4a00-acf8-bf0ffb21d50d",
+          "body": "{{# switch (urlParam 'id')}}\n  {{# case '1'}}\n   {\n   \"total\":15,\n   \"unique\":null,\n   \"readings\":[\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"16:48 09.06.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"13:08 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"13:08 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"15:43 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:23 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:24 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:24 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:06 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:23 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:23 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:24 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:25 21.08.2022\"\n      }\n   ]\n}\n  {{/ case}}\n  {{# case '2'}}\n  {\n   \"total\":15,\n   \"unique\":null,\n   \"readings\":[\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"16:48 09.06.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"13:08 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"13:08 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"15:43 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:23 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:24 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:24 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:06 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:23 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:23 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:24 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:25 21.08.2022\"\n      }\n   ]\n}\n  {{/ case}}\n  {{# default}}\n  {\n   \"total\":15,\n   \"unique\":null,\n   \"readings\":[\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"16:48 09.06.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"13:08 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"13:08 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"93.183.176.8\",\n         \"readAt\":\"15:43 05.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"21:09 16.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:23 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:24 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"213.91.180.106\",\n         \"readAt\":\"08:24 17.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:06 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:23 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:23 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:24 21.08.2022\"\n      },\n      {\n         \"readerIp\":\"77.70.54.223\",\n         \"readAt\":\"14:25 21.08.2022\"\n      }\n   ]\n}\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "6151cea0-9a75-41bb-8c9d-e62f5747b317",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/publications/:id/similar",
+      "responses": [
+        {
+          "uuid": "ea842767-6227-46d9-8bee-faf505521c80",
+          "body": "{{# switch (urlParam 'id')}}\n  {{# case '40'}}\n     {\n      \"id\":40,\n      \"title\":\"Белоградчишките скали\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   }\n  {{/ case}}\n  {{# case '42'}}\n    {\n      \"id\":42\n      \"title\":\"Белоградчишките скали\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   }\n  {{/ case}}\n  {{# default}}\n   {\n      \"id\":42\n      \"title\":\"Белоградчишките скали\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   }\n  {{/ default}}\n{{/ switch}}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "851275da-e3df-4f96-8afd-0745e4fc6814",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/publications/latest",
+      "responses": [
+        {
+          "uuid": "d4b02ed7-43a4-4d4e-a0aa-dbfccb70823b",
+          "body": "[\n   {\n      \"id\":40,\n      \"title\":\"Белоградчишките скали\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   },\n   {\n      \"id\":41,\n      \"title\":\"Франция\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   },\n   {\n      \"id\":42,\n      \"title\":\"Испания\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   },\n   {\n      \"id\":43,\n      \"title\":\"Италия\",\n      \"subtitle\":\"Невероятно!\",\n      \"image\":\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\",\n      \"publishedAt\":\"13:12 05.05.2022\"\n   }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": true,
+  "proxyHost": "http://localhost:8080/",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With, access-control-allow-origin"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+databaseChangeLog:
+- changeSet:
+    id: 1652987456884-1
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: users_pk
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: username
+            type: VARCHAR(64)
+        - column:
+            constraints:
+              nullable: false
+            name: password
+            type: VARCHAR
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(256)
+        - column:
+            constraints:
+              nullable: false
+            name: authority_id
+            type: INTEGER
+        tableName: users
+        schemaName: security
+- changeSet:
+    id: 1652987456884-2
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: authorities_pk
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(64)
+        - column:
+            name: description
+            type: VARCHAR(1024)
+        tableName: authorities
+        schemaName: security
+- changeSet:
+    id: 1652987456884-3
+    author: Adelina Milusheva (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: authority_id
+        baseTableName: users
+        baseTableSchemaName: security
+        constraintName: users_authorities_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: authorities
+        referencedTableSchemaName: security
+        validate: true
+

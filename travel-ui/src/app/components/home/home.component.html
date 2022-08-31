@@ -1,0 +1,44 @@
+<div class="primary-container">
+  <div class="primary-publications">
+    <mdb-carousel [animation]="'fade'" [controls]="true" [indicators]="true" *ngIf="primaryPublications && primaryPublications.length > 0">
+      <ng-container *ngFor="let p of primaryPublications">
+        <mdb-carousel-item class="primary-pub" routerLink="{{'/publications/' + p.id}}" [interval]="5000">
+          <img
+            src="{{p.image ? p.image : '/assets/img/blank.png'}}"
+            class="w-100 primary-pub-image"
+            alt="{{p.title}}"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{p.title}}</h5>
+          </div>
+        </mdb-carousel-item>
+      </ng-container>
+    </mdb-carousel>
+  </div>
+</div>
+
+<div data-test-id="secondary-publications" class="secondary-container">
+  <div class="secondary-publications">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col" *ngFor="let p of secondaryPublications">
+        <div data-test-id="secondary-publications-element" class="card h-100 secondary-pub" routerLink="{{'/publications/' + p.id}}">
+          <img
+            src="{{p.image ? p.image : '/assets/img/blank.png'}}"
+            class="card-img-top" style="height: 200pt;"
+            alt="{{p.title}}"
+          />
+          <div class="card-body">
+            <h5 class="card-title" style="min-height: 50pt;">{{p.title}}</h5>
+            <p class="card-text" style="min-height: 100pt;">
+              {{p.subtitle}}
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted" translate>Публикуван на: {{p.publishedAt}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<ng-container *ngIf="authService.hasRole('ADMIN')">
+    <canvas
+    baseChart
+    [data]="salesData"
+    [type]="'line'"
+    [options]="chartOptions"
+    >
+    </canvas>
+</ng-container>
+
+<!-- <a href="#" (click)="exportGraph($event)">butt</a> -->

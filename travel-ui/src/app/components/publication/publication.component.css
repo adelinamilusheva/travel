@@ -1,0 +1,76 @@
+h1 {
+    font-weight: bold;
+}
+
+.publication-container {
+    display: flex;
+    justify-content: center;
+}
+
+.publication-content {
+    margin: 10pt 0pt;
+    width: 80%;
+}
+
+.pub-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.similar-pub {
+    cursor: pointer;
+}
+
+.similar-pub > div > div > div > h5 {
+    background-image: linear-gradient(
+      to right,
+      #54b3d6,
+      #54b3d6 50%,
+      #000 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+ }
+ 
+ .similar-pub > div > div > div > h5:before {
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+ }
+ 
+ .similar-pub:hover > div > div > div > h5 {
+    background-position: 0;
+ }
+ 
+ .similar-pub:hover > div > div > div > h5:before {
+    width: 100%;
+ }
+
+.icon-plus:hover {
+    color:#54b3d6;
+}
+
+.icon-edit {
+    margin-right: 5pt;
+}
+
+.icon-edit:hover {
+    color:orange;
+}
+
+.icon-delete:hover {
+    color:red;
+}
+
+.rating-star {
+    color: yellow;
+}

@@ -1,0 +1,123 @@
+<div class="publication-container">
+    <div class="publication-content">
+      <div>
+        <h1 class="card-title">{{publication?.title}}</h1>
+        <div class="d-flex justify-content-between">
+          <div class="inline">
+            <span class="badge rounded-pill bg-primary" [ngClass]="badgeColors[i]" routerLink="{{'/groups/' + g.id}}"
+                *ngFor="let g of publication?.groups; let i = index">{{g.name}}</span>
+          </div>
+          <div class="inline">
+            <div>
+              <h5 class="inline rating-value">{{averageRating}} / 5</h5>
+              <i class="fa fa-star inline rating-star"></i>
+            </div>
+            <div *ngIf="!isAlreadyRated">
+              <div *ngFor="let n of [1,2,3,4,5]" class="inline">
+                <i class="fa fa-star inline rating-star" (click)="rate(n)"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+        <div class="card mb-3">
+            <img
+                src="{{publication?.image ? publication?.image : '/assets/img/blank.png'}}"
+              class="card-img-top"
+              alt="{{publication?.title}}"
+            />
+            <div class="card-body">
+              <p class="card-text pub-info">
+                  <small class="text-muted">{{'publications.publishedAt' | translate}}: {{publication?.publishedAt}} / {{publication?.createdBy}}</small>
+                  <small class="text-muted">
+                    <i class="fas fa-eye"></i>
+                    {{readingStats?.total}} ({{readingStats?.unique}})
+                  </small>
+              </p>
+              <p class="card-text" [innerHTML]="publication?.content"></p>
+            </div>
+        </div>
+        <div>
+            <span class="badge rounded-pill bg-primary" [ngClass]="badgeColors[i]" routerLink="{{'/tags/' + t.id}}"
+                *ngFor="let t of publication?.tags; let i = index">#{{t.name}}</span>
+        </div>
+
+        <div class="mt-5" *ngIf="weather">
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="card mb-3" style="height: 100pt;">
+              <div class="row g-0">
+                  <div class="col-md-2">
+                      <img data-toggle="tooltip" data-placement="top" title="{{weather.weather[0].description | translate}}"
+                          src="/assets/img/weather/{{weather.weather[0].icon}}.png"
+                          alt="{{weather.name}}" style="height: 100pt;"
+                          class="img-fluid"/>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="card-body">
+                          <h2 class="card-title">{{weather.name}}</h2>
+                          <div class="inline d-flex justify-content-between">
+                            <h5 class="card-title" data-toggle="tooltip" data-placement="top" title="{{'weather.feelsLike' | translate}} {{weather.main.feels_like}} C°">{{'weather.temperature' | translate}}: {{weather.main.temp}} C°</h5>
+                            <h5 class="card-title">{{'weather.pressure' | translate}}: {{weather.main.pressure}} hPa</h5>
+                          </div>
+                         <div class="inline d-flex justify-content-between">
+                            <h5 class="card-title">{{'weather.humidity' | translate}}: {{weather.main.humidity}} %</h5>
+                            <h5 class="card-title">{{'weather.windSpeed' | translate}}: {{weather.wind.speed}} m/s</h5>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <h3 class="card-title" translate>
+            publications.comments
+            <i class="icon-plus fa fa-plus fa-xs ml-1" (click)="createOrUpdateComment()"></i>
+          </h3>    
+          <div *ngIf="comments.length > 0">
+            <div *ngFor="let comment of comments" class="card mt-2">
+              <div class="card-body">
+                <h5 class="card-title d-flex justify-content-between">
+                  {{comment?.ipAddress}}
+                  <div *ngIf="comment.ipAddress == ipAddress">
+                    <div class="inline">
+                      <i class="icon-edit fa fa-pen" (click)="createOrUpdateComment(comment?.id, comment?.content)"></i>
+                    </div>
+                    <div class="inline">
+                      <i class="icon-delete fa fa-trash" (click)="delete(comment.id)"></i>
+                     </div>
+                  </div>
+                </h5>
+                <h4 class="card-text">{{comment?.publishedAt}}</h4>
+                <p class="card-text">{{comment?.content}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-5">
+          <h3 class="card-title" translate>publications.seeMore</h3>
+          <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col" *ngFor="let s of similar">
+              <div class="card mb-3 similar-pub" routerLink="{{'/publications/' + s.id}}" style="height: 100pt;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img
+                            src="{{s.image ? s.image : '/assets/img/blank.png'}}"
+                            alt="{{s.title}}" style="height: 100pt;"
+                            class="img-fluid"/>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{s.title}}</h5>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+﻿{
+  "appName": "Travel by Adelina",
+
+  "tables": {
+    "actions": "Actions",
+    "name": "Name"
+  },
+
+  "validations": {
+    "name" : "The name must be maximum 128 characters long!",
+    "text": "The text must be maximum 256 characters long!",
+    "invalidMail": "Invalid email!",
+    "content": "The content must be maximum 4096 characters long!"
+  },
+
+  "menu": {
+    "bg": "Bulgarian",
+    "en": "English",
+    "main": "Main",
+    "yellow": "Yellow",
+    "black": "Black",
+    "blue": "Blue",
+    "red": "Red",
+    "green": "Green",
+    "tags": "Tags",
+    "groups":"Groups",
+    "publications": "Publications",
+    "statistics": "Statistics"
+  },
+
+  "footer": {
+    "subscribe": "Subscribe for new publications",
+    "allRightsReserved": "All rights reserved."
+  },
+
+"dialogs": {
+    "close": "Close",
+    "save": "Save",
+    "comment": "Comment",
+    "content": "Content"
+  },
+
+  "buttons": {
+    "add": "Add new",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "subscribe":"Subscribe",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "view": "View",
+    "login": "Sign in"
+  },
+
+  "errors": {
+    "title": "Error!",
+    "0": "No connection to the server! Please reload the page.",
+    "1": "Wrong username and/or password."
+  },
+
+  "messages": {
+    "title": "Message!",
+    "subscribe": "You have successfully subscribed.",
+    "createPub": "The post was created successfully.",
+    "createComment": "The comment was created successfully."
+  },
+
+  "publications": {
+    "name": "Name",
+    "shortText": "Short text",
+    "content": "Content",
+    "newPublication": "Create a new post",
+    "updatePublication": "Update publication",
+    "seeMore": "See more",
+    "mainImage": "Upload image",
+    "groups": "Groups",
+    "tags": "Tags",
+    "createdBy": "Created by",
+    "publishedAt": "Published at",
+    "comments": "Comments"
+  },
+
+  "groups": {
+    "name": "Name",
+    "description": "Description",
+    "shortText": "Short text",
+    "createdAt": "Posted on:",
+    "parentGroup": "Choose parent group:",
+    "newGroup": "Create a new group",
+    "updateGroup": "Update a group"
+  },
+
+  "tags": {
+    "name": "Name",
+    "description": "Description",
+    "shortText": "Short text",
+    "newTag": "Create a new tag",
+    "updateTag": "Update a tag"
+  },
+
+  "statistics": {
+    "byTags": "Statistics by tags",
+    "byGroups": "Statistics by groups",
+    "byPublications": "Statistics by publications"
+  },
+
+  "weather": {
+    "feelsLike": "Feels like",
+    "temperature": "Temperature",
+    "pressure": "Pressure",
+    "windSpeed": "Wind speed",
+    "humidity": "Humidity",
+    "username": "Username is required",
+    "password": "Password is required"
+  },
+  
+  "paging": {
+    "itemsPerPage": "items"
+  },
+
+  "profile": {
+    "logout": "Logout"
+  }
+}

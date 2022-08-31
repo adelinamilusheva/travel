@@ -1,0 +1,158 @@
+body {
+    /* background-image: url("assets/img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(75, 0, 130, 0.1);*/
+}
+
+* {
+    font-family: Roboto;
+}
+
+ /* Themes */
+ .default-primary-color {
+    background-color: #4B0082;
+ }
+
+ .default-secondary-color {
+    background-color: #23003c;
+ }
+
+ .yellow-primary-color {
+    background-color: #FFC000;
+ }
+
+ .yellow-secondary-color {
+    background-color: #1C1B17;
+ }
+
+ .black-primary-color {
+    background-color: #000000;
+ }
+
+ .black-secondary-color {
+    background-color: #301934;
+ }
+
+ .blue-primary-color {
+    background-color: #0047AB;
+ }
+
+ .blue-secondary-color {
+    background-color: #00008B;
+ }
+
+ .red-primary-color {
+    background-color: #DC143C;
+ }
+
+ .red-secondary-color {
+    background-color: #800000;
+ }
+
+ .green-primary-color {
+    background-color: #097969;
+ }
+
+ .green-secondary-color {
+    background-color: #097969;
+ }
+
+ /* Navigation */
+.navbar {
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+}
+
+.nav-item {
+    margin: 0pt 5pt;
+}
+
+.nav-link {
+    color: white
+}
+
+.nav-link:hover {
+    color: lightblue;
+}
+
+.dropdown-menu {
+    background-color: aliceblue;
+}
+
+.dropdown-item {
+    font-weight: bold;
+}
+
+.btn-floating {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+ /* Forms */
+ .input-error {
+     color: lightcoral;
+     font-weight: bold;
+ }
+
+ /* Bagdes */
+ .badge {
+    cursor: pointer;
+    font-size: 10pt;
+    margin: 3pt 3pt;
+ }
+
+ /* Links */
+ .secondary-pub > div > h5 {
+   background-image: linear-gradient(
+     to right,
+     #54b3d6,
+     #54b3d6 50%,
+     #000 50%
+   );
+   background-size: 200% 100%;
+   background-position: -100%;
+   background-clip: text;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   transition: all 0.3s ease-in-out;
+}
+
+.secondary-pub > div > h5:before {
+   content: '';
+   background: #54b3d6;
+   display: block;
+   position: absolute;
+   bottom: -3px;
+   left: 0;
+   width: 0;
+   height: 3px;
+}
+
+.secondary-pub:hover > div > h5 {
+   background-position: 0;
+}
+
+.secondary-pub:hover > div > h5:before {
+   width: 100%;
+}
+
+.inline {
+   display: inline-block;
+}
+
+.rating-value {
+   margin-right: 3pt;
+}
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+ 
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';

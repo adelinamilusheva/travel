@@ -1,0 +1,38 @@
+<ng-container *ngIf="authService.hasRole('ADMIN')">
+    <span class="d-flex justify-content-center mt-3 font-weight-bold">
+        <h3 translate>menu.statistics</h3>
+    </span>
+    <div class="d-flex justify-content-center">
+        <table class="table table-bordered table-striped w-75">
+            <thead>
+                <tr>
+                    <th scope="col" translate>tables.name</th>
+                    <th scope="col" translate>tables.actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td translate>statistics.byTags</td>
+                    <td class="text-center py-2">
+                        <button class="btn btn-sm btn-success" 
+                        routerLink="/admin/tags-statistics" translate>buttons.view</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td translate>statistics.byGroups</td>
+                    <td class="text-center py-2">
+                        <button class="btn btn-sm btn-success" 
+                        routerLink="/admin/groups-statistics" translate>buttons.view</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td translate>statistics.byPublications</td>
+                    <td class="text-center py-2">
+                        <button class="btn btn-sm btn-success" 
+                        routerLink="/admin/publications-statistics" translate>buttons.view</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

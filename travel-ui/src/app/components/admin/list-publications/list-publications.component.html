@@ -1,0 +1,58 @@
+<ng-container *ngIf="authService.hasRole('ADMIN')">
+    <span class="d-flex justify-content-center mt-3 font-weight-bold">
+        <h3 translate>menu.publications</h3>
+    </span>
+    <div class="d-flex justify-content-center">
+        <div class=" d-flex justify-content-end w-75 mt-5 mb-2">
+            <button class="btn btn-sm btn-success" routerLink='/admin/create-publication' translate>buttons.add</button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <table class="table table-bordered table-striped w-75">
+            <thead>
+                <tr>
+                    <th (click)="onSort('title')" scope="col" translate>publications.name</th>
+                    <th (click)="onSort('publishedAt')" scope="col" translate>publications.publishedAt</th>
+                    <th (click)="onSort('createdBy')" scope="col" translate>publications.createdBy</th>
+                    <th scope="col" class="text-center" translate>tables.actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let publication of publications">
+                    <td>{{publication.title}}</td>
+                    <td>{{publication.publishedAt}}</td>
+                    <td>{{publication.createdBy}}</td>
+                    
+                    <td class="text-center py-2">
+                        <button class="btn btn-sm btn-success" routerLink="/admin/create-publication"
+                            [queryParams]="{id: publication.id}" translate>buttons.edit</button>
+
+                        <button class="btn btn-sm btn-success m-lg-1" *ngIf="!publication.isActive" (click)="changeGroupStatus(publication.id, !publication.isActive)" translate>buttons.activate</button>
+                        <button class="btn btn-sm btn-danger m-lg-1" *ngIf="publication.isActive" (click)="changeGroupStatus(publication.id, !publication.isActive)" translate>buttons.deactivate</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="paging-wrapper d-flex w-75 justify-content-between p-2">
+            <select class="pagination-size form-select" [(ngModel)]="sortingPaging.pageSize" (change)="onPageSizeChange($event)">
+                <option *ngFor="let item of pageSizeOptions; let i = index" [value]="pageSizeOptions[i]">
+                {{pageSizeOptions[i]}} {{'paging.itemsPerPage' | translate}} 
+                </option>
+            </select>
+            <ngb-pagination class="pagination-control"
+                [(page)]="sortingPaging.pageNumber"
+                [pageSize]="sortingPaging.pageSize"
+                [collectionSize]="sortingPaging.totalElements"
+                [boundaryLinks]="true"
+                [maxSize]="3"
+                (pageChange)="pageChanged($event)">
+            </ngb-pagination>
+            <span class="pagination-index border center">
+                {{sortingPaging.fromRow}} - {{sortingPaging.toRow}} / {{sortingPaging.totalElements}}
+            </span>
+        </div>
+    </div>
+</ng-container>

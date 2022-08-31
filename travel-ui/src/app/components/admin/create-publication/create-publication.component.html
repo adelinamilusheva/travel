@@ -1,0 +1,54 @@
+<ng-container *ngIf="authService.hasRole('ADMIN')">
+  <div class="create-container">
+      <div class="create-content">
+          <h1 *ngIf="addEditForm.get('id')?.value == null" translate>publications.newPublication</h1>
+          <h1 *ngIf="addEditForm.get('id')?.value != null" translate>publications.updatePublication</h1>
+
+          <form [formGroup]="addEditForm" *ngIf="publication$ | async as data">
+              <h5 translate>publications.name</h5>
+              <div class="md-form">
+                <input mdbInput mdbValidate type="text"  class="form-control" formControlName="title">
+                <mdb-error class="input-error" *ngIf="isInvalid('title')" translate>validations.name</mdb-error>
+              </div>
+
+              <h5 class="mt-5" translate>publications.shortText</h5>
+              <div class="md-form">
+                <input mdbInput mdbValidate type="text"  class="form-control" formControlName="subtitle">
+                <mdb-error class="input-error" *ngIf="isInvalid('subtitle')" translate>validations.text</mdb-error>
+              </div>
+
+              <h5 class="mt-5" translate>publications.groups</h5>
+              <div class="md-form">
+                <select class="form-select" formControlName="groups" [compareWith]="compareById" multiple>
+                  <option *ngFor="let group of groups" [ngValue]="group"> {{group.name}}
+                </select> 
+              </div>
+
+              <h5 class="mt-5" translate>publications.tags</h5>
+              <div class="md-form">
+                <select class="form-select" formControlName="tags" [compareWith]="compareById" multiple>
+                  <option *ngFor="let tag of tags" [ngValue]="tag"> {{tag.name}}
+                </select> 
+              </div>
+
+              <div class="form-group mt-5">
+                <img [src]="image" height="200pt" />
+      
+                <div class="custom-file w-70 mt-2">
+                  <input type="file" class="custom-file-input form-control" 
+                    #fileInput (change)="onImageChange(fileInput.files![0])" accept=".jpg,.png">
+                  <mdb-error class="input-error" *ngIf="isInvalid('image')" translate>validations.text</mdb-error>
+                </div>
+              </div>
+      
+          </form>
+        
+          <h5 class="mt-5" translate>publications.content</h5>
+          <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+
+          <button type="button" class="btn btn-danger mt-5" (click)="save()" [disabled]="!addEditForm.valid || htmlContent?.length == 0 || htmlContent?.length == undefined" translate>
+              buttons.save
+          </button>
+      </div>
+  </div>
+</ng-container>

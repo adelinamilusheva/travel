@@ -1,0 +1,257 @@
+databaseChangeLog:
+- changeSet:
+    id: 1652987323364-1
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: tags_pk
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(64)
+        - column:
+            name: description
+            type: VARCHAR(1024)
+        tableName: tags
+- changeSet:
+    id: 1652987323364-2
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: groups_pk
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(64)
+        - column:
+            name: description
+            type: VARCHAR(1024)
+        - column:
+            name: parent_id
+            type: INTEGER
+        tableName: groups
+- changeSet:
+    id: 1652987323364-3
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: notifications_pk
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: email
+            type: VARCHAR(256)
+        - column:
+            constraints:
+              nullable: false
+            defaultValueBoolean: true
+            name: is_active
+            type: BOOLEAN
+        tableName: notifications
+- changeSet:
+    id: 1652987323364-4
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: publications_pk
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: title
+            type: VARCHAR(64)
+        - column:
+            name: subtitle
+            type: VARCHAR(128)
+        - column:
+            constraints:
+              nullable: false
+            name: main_image
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: content
+            type: VARCHAR
+        - column:
+            constraints:
+              nullable: false
+            name: created_by
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: published_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: publications
+- changeSet:
+    id: 1652987323364-5
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+            name: id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: publication_ip
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: reader_id
+            type: VARCHAR(64)
+        - column:
+            constraints:
+              nullable: false
+            name: read_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: readings
+- changeSet:
+    id: 1652987323364-6
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: publication_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: group_id
+            type: INTEGER
+        tableName: n_publications_groups
+- changeSet:
+    id: 1652987323364-7
+    author: Adelina Milusheva (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: publication_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: tag_id
+            type: INTEGER
+        tableName: n_publications_tags
+- changeSet:
+    id: 1652987323364-8
+    author: Adelina Milusheva (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: parent_id
+        baseTableName: groups
+        constraintName: group_parent_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: groups
+        validate: true
+- changeSet:
+    id: 1652987323364-9
+    author: Adelina Milusheva (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: group_id
+        baseTableName: n_publications_groups
+        constraintName: n_publications_groups_group_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: groups
+        validate: true
+- changeSet:
+    id: 1652987323364-10
+    author: Adelina Milusheva (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: publication_id
+        baseTableName: n_publications_groups
+        constraintName: n_publications_groups_publication_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: publications
+        validate: true
+- changeSet:
+    id: 1652987323364-11
+    author: Adelina Milusheva (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: publication_id
+        baseTableName: n_publications_tags
+        constraintName: n_publications_tags_publication_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: publications
+        validate: true
+- changeSet:
+    id: 1652987323364-12
+    author: Adelina Milusheva (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: tag_id
+        baseTableName: n_publications_tags
+        constraintName: n_publications_tags_tag_fk
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: tags
+        validate: true
+

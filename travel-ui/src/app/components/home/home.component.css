@@ -1,0 +1,47 @@
+.carousel {
+    width: 80%;
+}
+
+.carousel-caption h5 {
+    text-shadow: 3pt 3pt black;
+}
+
+.primary-container {
+    display: flex;
+    justify-content: center;
+}
+
+.primary-publications {
+    margin: 10pt 0pt;
+    width: 80%;
+}
+
+.secondary-container {
+    display: flex;
+    justify-content: center;
+}
+
+.secondary-publications {
+    margin: 10pt 0pt;
+    width: 80%;
+}
+
+.card {
+    display: inline-block;
+}
+
+.primary-pub, .secondary-pub {
+    cursor: pointer;
+}
+
+.primary-pub:hover > div > h5 {
+    color: lightblue;
+}
+
+.primary-pub-image {
+    height: 500pt;
+}
+
+.carousel-caption > h5 {
+    font-size: 36pt;
+}

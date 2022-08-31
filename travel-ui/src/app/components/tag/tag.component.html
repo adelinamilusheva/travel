@@ -1,0 +1,50 @@
+<div class="tag-container">
+    <div class="tag-content">
+        <h1 class="tag-title">#{{tag?.name}}</h1>
+        <h5 class="tag-description">{{tag?.description}}</h5>
+
+        <div class="card mb-3 menu-pub" *ngFor="let p of publications" routerLink="{{'/publications/' + p.id}}">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img
+                        src="{{p.image ? p.image : '/assets/img/blank.png'}}"
+                        alt="{{p.title}}"
+                        class="img-fluid"
+                    />
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.title}}</h5>
+                        <p class="card-text">
+                            {{p.subtitle}}
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">Публикуван на: {{p.publishedAt}}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <div class="paging-wrapper d-flex w-75 justify-content-between p-2">
+                <select class="pagination-size form-select" [(ngModel)]="sortingPaging.pageSize" (change)="onPageSizeChange($event)">
+                    <option *ngFor="let item of pageSizeOptions; let i = index" [value]="pageSizeOptions[i]">
+                      {{pageSizeOptions[i]}} {{'paging.itemsPerPage' | translate}} 
+                    </option>
+                </select>
+                <ngb-pagination class="pagination-control"
+                    [(page)]="sortingPaging.pageNumber"
+                    [pageSize]="sortingPaging.pageSize"
+                    [collectionSize]="sortingPaging.totalElements"
+                    [boundaryLinks]="true"
+                    [maxSize]="3"
+                    (pageChange)="pageChanged($event)">
+                </ngb-pagination>
+                <span class="pagination-index border center">
+                    {{sortingPaging.fromRow}} - {{sortingPaging.toRow}} / {{sortingPaging.totalElements}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<ng-container *ngIf="authService.hasRole('ADMIN')">
+  <div class="create-group-container">
+      <div class="create-group-content m-lg-5">
+          <h1 *ngIf="addEditForm.get('id')?.value == null" translate>groups.newGroup</h1>
+          <h1 *ngIf="addEditForm.get('id')?.value != null" translate>groups.updateGroup</h1>
+
+          <form [formGroup]="addEditForm" *ngIf="group$ | async as data">
+              <h5 translate>groups.name</h5>
+              <div class="md-form">
+                <input mdbInput mdbValidate type="text" class="form-control" formControlName="name">
+                <mdb-error class="input-error" *ngIf="isInvalid('name')" translate>validations.name</mdb-error>
+              </div>
+
+              <h5 class="mt-5" translate>groups.shortText</h5>
+              <div class="md-form">
+                <input mdbInput mdbValidate type="text" class="form-control" formControlName="description">
+                <mdb-error class="input-error" *ngIf="isInvalid('description')" translate>validations.text</mdb-error>
+              </div>
+
+              <h5 class="mt-5" translate>groups.parentGroup</h5>
+              <div class="md-form">
+                <select class="form-select" formControlName="parent" [compareWith]="compareById">
+                  <option *ngFor="let group of allGroups" [ngValue]="group"> {{group.name}}
+                </select> 
+              </div>
+          </form>
+
+          <button type="button" class="btn btn-danger mt-5" (click)="save()" [disabled]="!addEditForm.valid" translate>
+              buttons.save
+          </button>
+      </div>
+  </div>
+</ng-container>

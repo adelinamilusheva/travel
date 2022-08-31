@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ 'dialogs.comment' | translate }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="addEditForm">
+        <h5 translate>dialogs.content</h5>
+        <div class="md-form">
+          <input mdbInput mdbValidate type="text"  class="form-control" formControlName="content">
+          <mdb-error class="input-error" *ngIf="isInvalid('content')" translate>validations.content</mdb-error>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger mt-5" (click)="save()" [disabled]="!addEditForm.valid">{{ 'dialogs.save' | translate }}</button>
+</div>
